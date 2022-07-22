@@ -12,6 +12,10 @@ var corsOptions = {
         "http://localhost:3000",
     ],
 };
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 app.use(cors(corsOptions));
 app.listen(PORT, HOST, () => {
     console.log(`🚀 Server started on Host: http://${HOST}:${PORT}/.`);

@@ -1,16 +1,16 @@
 import { AppActionTypes } from './app.types';
 
 const initialState = {
-    test: 'test'
+    codeSent: false,
 };
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case AppActionTypes.TEST_ACTION:
+        case AppActionTypes.CODE_SENT:
             return {
                 ...state,
-                user: 'test success',
+                codeSent: true,
             }
         
         default:

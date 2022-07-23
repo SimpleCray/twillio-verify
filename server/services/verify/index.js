@@ -66,8 +66,6 @@ router.post('/check-code', async (req, res, next) => {
         verificationResult = await client.verify.services(VERIFICATION_SID).verificationChecks.create({ to, code });
         console.log(verificationResult)
         if (verificationResult.status === 'approved') {
-            req.user.role = 'access secret content';
-            await req.user.save();
             return res.status(200).send({verified: true, message: 'Phone number verified!'});
         } else {
             return res.status(500).send({message: `Wrong verify code!`});

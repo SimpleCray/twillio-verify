@@ -23,7 +23,7 @@
             margin-bottom: 15px;
         }
         select {
-            width: 50%;
+            width: 200px;
             height: 40px;
             background: $lightWhite;
             font-size: 20px;
@@ -34,6 +34,9 @@
             color: $darkGrey;
             margin-bottom: 15px;
             font-weight: 700;
+            option {
+                max-width: 200px;
+            }
         }
         input {
             width: 95%;
@@ -51,6 +54,15 @@
         input:focus {
             box-shadow: 0px 0px 20px $red;
             outline: none;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        input[type='number'] {
+            -moz-appearance: textfield;
         }
         button {
             background: linear-gradient(32.95deg,#ffcc21 8.75%,#ff963c 86.64%);

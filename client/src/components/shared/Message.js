@@ -27,7 +27,6 @@ const messageType = {
 const Message = () => {
     const dispatch = useDispatch();
     const { message, variant, duration } = useSelector((state) => state.message);
-    console.log(message)
 
     useEffect(() => {
         let timer = setTimeout(() => onClear(), duration);

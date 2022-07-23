@@ -14,3 +14,18 @@ export const getVerificationCode = (phone) => async (dispatch) => {
         dispatch(showMessage(error?.response?.data?.message || error.message));
     }
 };
+
+export const checkVerificationCode = (phone, code) => async (dispatch) => {
+    try {
+        dispatch(showMessage('Checking...!', MESSAGE_VARIANT.INFO));
+        const response = await API_BE().post(ENDPOINT_API.VERIFY.CHECK_CODE, { to: phone, code });
+        dispatch(showMessage(response.data?.message, MESSAGE_VARIANT.SUCCESS));
+        return dispatch({ type: AppActionTypes.PHONE_VERIFIED });
+    } catch (error) {
+        dispatch(showMessage(error?.response?.data?.message || error.message));
+    }
+};
+
+export const resetVerify = () => dispatch => {
+    dispatch({ type: AppActionTypes.RESET_VERIFY });
+}
